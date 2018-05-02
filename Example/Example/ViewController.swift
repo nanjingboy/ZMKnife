@@ -10,6 +10,9 @@ class ViewController: UIViewController {
     let rightIconTitleAndValueTextViewLabel = PaddingLabel()
     let rightIconTitleAndValueTextView = RightIconTitleAndValueTextView()
 
+    let paddingTextFieldLabel = PaddingLabel()
+    let paddingTextField = PaddingTextField()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +54,26 @@ class ViewController: UIViewController {
         self.rightIconTitleAndValueTextView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
             make.top.equalTo(self.rightIconTitleAndValueTextViewLabel.snp.bottom)
+            make.height.equalTo(40)
+        }
+
+        self.paddingTextFieldLabel.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.paddingTextFieldLabel.backgroundColor = UIColor.lightGray
+        self.paddingTextFieldLabel.font = UIFont.systemFont(ofSize: 14)
+        self.paddingTextFieldLabel.text = "PaddingTextField Demo"
+        self.view.addSubview(self.paddingTextFieldLabel)
+        self.paddingTextFieldLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.rightIconTitleAndValueTextView.snp.bottom)
+            make.height.greaterThanOrEqualTo(30)
+        }
+        self.paddingTextField.placeholder = "padding text field"
+        self.paddingTextField.bottomBorderColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00)
+        self.paddingTextField.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.view.addSubview(self.paddingTextField)
+        self.paddingTextField.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.paddingTextFieldLabel.snp.bottom)
             make.height.equalTo(40)
         }
     }
