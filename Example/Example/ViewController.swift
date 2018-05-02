@@ -1,6 +1,7 @@
 import UIKit
 import ZMKnife
 import SnapKit
+import Toast_Swift
 
 class ViewController: UIViewController {
 
@@ -12,10 +13,12 @@ class ViewController: UIViewController {
 
     let paddingTextFieldLabel = PaddingLabel()
     let paddingTextField = PaddingTextField()
+    
+    let searchViewLabel = PaddingLabel()
+    let searchView = SearchView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.view.backgroundColor = UIColor.white
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = "ZMKnife Demos"
@@ -75,6 +78,28 @@ class ViewController: UIViewController {
             make.left.right.equalTo(self.view)
             make.top.equalTo(self.paddingTextFieldLabel.snp.bottom)
             make.height.equalTo(40)
+        }
+        
+        self.searchViewLabel.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.searchViewLabel.backgroundColor = UIColor.lightGray
+        self.searchViewLabel.font = UIFont.systemFont(ofSize: 14)
+        self.searchViewLabel.text = "SearchView Demo"
+        self.view.addSubview(self.searchViewLabel)
+        self.searchViewLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.paddingTextField.snp.bottom)
+            make.height.greaterThanOrEqualTo(30)
+        }
+        self.searchView.placeholder = "Search..."
+        self.view.addSubview(self.searchView)
+        self.searchView.snp.makeConstraints { (make) in
+            make.left.equalTo(self.view).offset(4)
+            make.right.equalTo(self.view).offset(-4)
+            make.top.equalTo(self.searchViewLabel.snp.bottom).offset(4)
+            make.height.equalTo(40)
+        }
+        self.searchView.onSearch = { [unowned self] (keyword) in
+            self.view.makeToast("Keyword: \(keyword!)")
         }
     }
 }
