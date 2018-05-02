@@ -4,7 +4,8 @@ import SnapKit
 public class TitleAndValueTextView: BorderBottomView {
 
     public var titleWidth: CGFloat?
-    public var padding: UIEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+    public var leftPadding: CGFloat = 16
+    public var rightPadding: CGFloat = 16
 
     public var title: String? {
         didSet {
@@ -57,32 +58,27 @@ public class TitleAndValueTextView: BorderBottomView {
 
     public override func updateConstraints() {
         super.updateConstraints()
-        let padding = self.padding
         if let titleWidth = self.titleWidth {
             self.titleLabel.snp.remakeConstraints { (make) in
-                make.left.equalTo(self).offset(padding.left)
+                make.left.equalTo(self).offset(self.leftPadding)
                 make.width.equalTo(titleWidth)
-                make.top.equalTo(self).offset(padding.top)
-                make.bottom.equalTo(self).offset(-padding.bottom)
+                make.top.bottom.equalTo(self)
             }
         } else {
             self.titleLabel.snp.remakeConstraints { (make) in
-                make.left.equalTo(self).offset(padding.left)
+                make.left.equalTo(self).offset(self.leftPadding)
                 make.right.equalTo(self.snp.centerX)
-                make.top.equalTo(self).offset(padding.top)
-                make.bottom.equalTo(self).offset(-padding.bottom)
+                make.top.bottom.equalTo(self)
             }
         }
         self.updateValueLabelConstraints()
     }
 
     func updateValueLabelConstraints() {
-        let padding = self.padding
         self.valueLabel.snp.remakeConstraints { (make) in
             make.left.equalTo(self.titleLabel.snp.right)
-            make.right.equalTo(self).offset(-padding.right)
-            make.top.equalTo(self).offset(padding.top)
-            make.bottom.equalTo(self).offset(-padding.bottom)
+            make.right.equalTo(self).offset(-rightPadding)
+            make.top.bottom.equalTo(self)
         }
     }
 
@@ -93,7 +89,7 @@ public class TitleAndValueTextView: BorderBottomView {
         self.titleLabel.font = self.titleFont
         self.titleLabel.textColor = self.titleColor
         self.addSubview(self.titleLabel)
-
+    
         self.valueLabel.text = self.value
         self.valueLabel.font = self.valueFont
         self.valueLabel.textColor = self.valueColor
