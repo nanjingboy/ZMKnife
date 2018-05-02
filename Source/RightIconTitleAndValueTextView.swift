@@ -2,23 +2,23 @@ import UIKit
 import SnapKit
 import Foundation
 
-public class RightIconTitleAndValueTextView : TitleAndValueTextView {
+open class RightIconTitleAndValueTextView : TitleAndValueTextView {
 
-    public var rightIcon: UIImage? {
+    open var rightIcon: UIImage? {
         didSet {
             self.rightIconImageView.image = self.rightIcon
         }
     }
 
-    public var rightIconWidth: CGFloat = 6
-    public var rightIconHeight: CGFloat = 12
-    public var rightIconLeftMargin: CGFloat = 4
+    open var rightIconWidth: CGFloat = 6
+    open var rightIconHeight: CGFloat = 12
+    open var rightIconLeftMargin: CGFloat = 4
     
-    public var onClickedListener: (() -> Void)?
+    open var onClickedListener: (() -> Void)?
 
     let rightIconImageView = UIImageView()
 
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         super.updateConstraints()
         self.rightIconImageView.snp.remakeConstraints { (make) in
             make.right.equalTo(self).offset(-self.rightPadding)
@@ -28,7 +28,7 @@ public class RightIconTitleAndValueTextView : TitleAndValueTextView {
         }
     }
 
-    override func updateValueLabelConstraints() {
+    open override func updateValueLabelConstraints() {
         self.valueLabel.snp.remakeConstraints { (make) in
             make.left.equalTo(self.titleLabel.snp.right)
             make.right.equalTo(self).offset(-(self.rightPadding + self.rightIconWidth + self.rightIconLeftMargin))
@@ -36,7 +36,7 @@ public class RightIconTitleAndValueTextView : TitleAndValueTextView {
         }
     }
 
-    override func initViews() {
+   open override func initViews() {
         super.initViews()
         self.rightIconImageView.image = Utils.image("arrow_right", classType: self)
         self.addSubview(self.rightIconImageView)
@@ -44,7 +44,7 @@ public class RightIconTitleAndValueTextView : TitleAndValueTextView {
         self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onClicked)))
     }
 
-    @objc func onClicked() {
+    @objc open func onClicked() {
         if let callback = self.onClickedListener {
             callback()
         }

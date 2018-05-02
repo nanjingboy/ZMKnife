@@ -1,15 +1,15 @@
 import UIKit
 import SpriteKit
 
-public class PaddingTextField: UITextField {
+open class PaddingTextField: UITextField {
     
-    public var bottomBorderColor: UIColor? {
+    open var bottomBorderColor: UIColor? {
         didSet {
             self.borderBottom.backgroundColor = self.bottomBorderColor
         }
     }
 
-    public var padding: UIEdgeInsets = UIEdgeInsets.zero
+    open var padding: UIEdgeInsets = UIEdgeInsets.zero
 
     let borderBottom = UIView()
     
@@ -23,7 +23,7 @@ public class PaddingTextField: UITextField {
         self.initViews()
     }
     
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         super.updateConstraints()
         self.borderBottom.snp.remakeConstraints { (make) in
             make.left.right.equalTo(self)
@@ -32,19 +32,19 @@ public class PaddingTextField: UITextField {
         }
     }
     
-    public override func textRect(forBounds bounds: CGRect) -> CGRect {
+    open override func textRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, self.padding)
     }
     
-    public override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+    open override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, self.padding)
     }
 
-    public override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    open override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, self.padding)
     }
 
-    func initViews() {
+    open func initViews() {
         self.borderBottom.backgroundColor = self.backgroundColor
         self.addSubview(self.borderBottom)
     }

@@ -1,9 +1,9 @@
 import UIKit
 import SpriteKit
 
-public class SearchView: UIView, UITextFieldDelegate {
+open class SearchView: UIView, UITextFieldDelegate {
 
-    public var placeholder: String? {
+    open var placeholder: String? {
         get {
             return self.textField.placeholder
         }
@@ -12,7 +12,7 @@ public class SearchView: UIView, UITextFieldDelegate {
         }
     }
 
-    public var font: UIFont? {
+    open var font: UIFont? {
         get {
             return self.textField.font
         }
@@ -21,7 +21,7 @@ public class SearchView: UIView, UITextFieldDelegate {
         }
     }
 
-    public override var tintColor: UIColor? {
+    open override var tintColor: UIColor? {
         get {
             return self.textField.tintColor
         }
@@ -30,7 +30,7 @@ public class SearchView: UIView, UITextFieldDelegate {
         }
     }
 
-    public var onSearch: ((String?) -> Void)?
+    open var onSearch: ((String?) -> Void)?
 
     let imageView = UIImageView()
     let textField = UITextField()
@@ -45,7 +45,7 @@ public class SearchView: UIView, UITextFieldDelegate {
         self.initViews()
     }
 
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         super.updateConstraints()
         self.imageView.snp.remakeConstraints { (make) in
             make.left.equalTo(self).offset(10)
@@ -58,18 +58,18 @@ public class SearchView: UIView, UITextFieldDelegate {
         }
     }
 
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    open func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 
-    public func textFieldDidEndEditing(_ textField: UITextField) {
+    open func textFieldDidEndEditing(_ textField: UITextField) {
         if let callback = self.onSearch {
             callback(textField.text)
         }
     }
 
-    func initViews() {
+    open func initViews() {
         self.backgroundColor = UIColor.white
         self.layer.cornerRadius = 8
         self.layer.borderWidth = 1

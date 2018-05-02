@@ -1,49 +1,49 @@
 import UIKit
 import SnapKit
 
-public class TitleAndValueTextView: BorderBottomView {
+open class TitleAndValueTextView: BorderBottomView {
 
-    public var titleWidth: CGFloat?
-    public var leftPadding: CGFloat = 16
-    public var rightPadding: CGFloat = 16
+    open var titleWidth: CGFloat?
+    open var leftPadding: CGFloat = 16
+    open var rightPadding: CGFloat = 16
 
-    public var title: String? {
+    open var title: String? {
         didSet {
             self.titleLabel.text = self.title
         }
     }
 
-    public var titleColor: UIColor = UIColor.black {
+    open var titleColor: UIColor = UIColor.black {
         didSet {
             self.titleLabel.textColor = self.titleColor
         }
     }
 
-    public var titleFont: UIFont = UIFont.systemFont(ofSize: 14) {
+    open var titleFont: UIFont = UIFont.systemFont(ofSize: 14) {
         didSet {
             self.titleLabel.font = self.titleFont
         }
     }
 
-    public var value: String? {
+    open var value: String? {
         didSet {
             self.valueLabel.text = self.value
         }
     }
 
-    public var valueColor: UIColor = UIColor.black {
+    open var valueColor: UIColor = UIColor.black {
         didSet {
             self.valueLabel.textColor = self.valueColor
         }
     }
 
-    public var valueFont: UIFont = UIFont.systemFont(ofSize: 14) {
+    open var valueFont: UIFont = UIFont.systemFont(ofSize: 14) {
         didSet {
             self.valueLabel.font = self.valueFont
         }
     }
 
-    public var isValueAlignRight: Bool = true {
+    open var isValueAlignRight: Bool = true {
         didSet {
             if self.isValueAlignRight {
                 self.valueLabel.textAlignment = .right
@@ -56,7 +56,7 @@ public class TitleAndValueTextView: BorderBottomView {
     let titleLabel = UILabel()
     let valueLabel = UILabel()
 
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         super.updateConstraints()
         if let titleWidth = self.titleWidth {
             self.titleLabel.snp.remakeConstraints { (make) in
@@ -74,7 +74,7 @@ public class TitleAndValueTextView: BorderBottomView {
         self.updateValueLabelConstraints()
     }
 
-    func updateValueLabelConstraints() {
+    open func updateValueLabelConstraints() {
         self.valueLabel.snp.remakeConstraints { (make) in
             make.left.equalTo(self.titleLabel.snp.right)
             make.right.equalTo(self).offset(-rightPadding)
@@ -82,7 +82,7 @@ public class TitleAndValueTextView: BorderBottomView {
         }
     }
 
-    override func initViews() {
+    override open func initViews() {
         self.backgroundColor = UIColor.white
 
         self.titleLabel.text = self.title

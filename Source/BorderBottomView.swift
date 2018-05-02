@@ -1,9 +1,9 @@
 import UIKit
 import SnapKit
 
-public class BorderBottomView: UIView {
+open class BorderBottomView: UIView {
 
-    public var borderColor: UIColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00) {
+    open var borderColor: UIColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00) {
         didSet {
             self.borderBottom.backgroundColor = self.borderColor
         }
@@ -21,7 +21,7 @@ public class BorderBottomView: UIView {
         self.initViews()
     }
 
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         super.updateConstraints()
         self.borderBottom.snp.remakeConstraints { (make) in
             make.left.right.equalTo(self)
@@ -30,7 +30,7 @@ public class BorderBottomView: UIView {
         }
     }
 
-    func initViews() {
+    open func initViews() {
         self.borderBottom.backgroundColor = self.borderColor
         self.addSubview(self.borderBottom)
     }

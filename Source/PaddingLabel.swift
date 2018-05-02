@@ -1,15 +1,15 @@
 import UIKit
 import SpriteKit
 
-public class PaddingLabel: UILabel {
+open class PaddingLabel: UILabel {
 
-    public var bottomBorderColor: UIColor? {
+    open var bottomBorderColor: UIColor? {
         didSet {
             self.borderBottom.backgroundColor = self.bottomBorderColor
         }
     }
 
-    public var padding: UIEdgeInsets = UIEdgeInsets.zero {
+    open var padding: UIEdgeInsets = UIEdgeInsets.zero {
         didSet {
             setNeedsDisplay()
         }
@@ -27,7 +27,7 @@ public class PaddingLabel: UILabel {
         self.initViews()
     }
 
-    public override func updateConstraints() {
+    open override func updateConstraints() {
         super.updateConstraints()
         self.borderBottom.snp.remakeConstraints { (make) in
             make.left.right.equalTo(self)
@@ -36,11 +36,11 @@ public class PaddingLabel: UILabel {
         }
     }
 
-    public override func drawText(in rect: CGRect) {
+    open override func drawText(in rect: CGRect) {
         super.drawText(in: UIEdgeInsetsInsetRect(rect, self.padding))
     }
 
-    func initViews() {
+    open func initViews() {
         self.borderBottom.backgroundColor = self.backgroundColor
         self.addSubview(self.borderBottom)
     }
