@@ -3,37 +3,10 @@ import SpriteKit
 
 open class SearchView: UIView, UITextFieldDelegate {
 
-    open var placeholder: String? {
-        get {
-            return self.textField.placeholder
-        }
-        set(value) {
-            self.textField.placeholder = value
-        }
-    }
-
-    open var font: UIFont? {
-        get {
-            return self.textField.font
-        }
-        set(value) {
-            self.textField.font = value
-        }
-    }
-
-    open override var tintColor: UIColor? {
-        get {
-            return self.textField.tintColor
-        }
-        set(value) {
-            self.textField.tintColor = value
-        }
-    }
+    open let imageView = UIImageView()
+    open let textField = UITextField()
 
     open var onSearch: ((String?) -> Void)?
-
-    let imageView = UIImageView()
-    let textField = UITextField()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)

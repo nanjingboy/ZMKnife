@@ -4,19 +4,13 @@ import Foundation
 
 open class RightIconTitleAndValueTextView : TitleAndValueTextView {
 
-    open var rightIcon: UIImage? {
-        didSet {
-            self.rightIconImageView.image = self.rightIcon
-        }
-    }
-
     open var rightIconWidth: CGFloat = 6
     open var rightIconHeight: CGFloat = 12
     open var rightIconLeftMargin: CGFloat = 4
-    
-    open var onClickedListener: (() -> Void)?
 
-    let rightIconImageView = UIImageView()
+    open let rightIconImageView = UIImageView()
+
+    open var onClickedListener: (() -> Void)?
 
     open override func updateConstraints() {
         super.updateConstraints()

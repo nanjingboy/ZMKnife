@@ -35,8 +35,9 @@ class ViewController: UIViewController {
             make.left.right.top.equalTo(self.view)
             make.height.greaterThanOrEqualTo(30)
         }
-        self.titleAndValueTextView.title = "Name"
-        self.titleAndValueTextView.value = "Tom.Huang"
+
+        self.titleAndValueTextView.titleLabel.text = "Name"
+        self.titleAndValueTextView.valueLabel.text = "Tom.Huang"
         self.view.addSubview(self.titleAndValueTextView)
         self.titleAndValueTextView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
@@ -54,8 +55,8 @@ class ViewController: UIViewController {
             make.top.equalTo(self.titleAndValueTextView.snp.bottom)
             make.height.greaterThanOrEqualTo(30)
         }
-        self.rightIconTitleAndValueTextView.title = "Name"
-        self.rightIconTitleAndValueTextView.value = "Tom.Huang"
+        self.rightIconTitleAndValueTextView.titleLabel.text = "Name"
+        self.rightIconTitleAndValueTextView.valueLabel.text = "Tom.Huang"
         self.view.addSubview(self.rightIconTitleAndValueTextView)
         self.rightIconTitleAndValueTextView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
@@ -82,7 +83,7 @@ class ViewController: UIViewController {
             make.top.equalTo(self.paddingTextFieldLabel.snp.bottom)
             make.height.equalTo(40)
         }
-        
+
         self.searchViewLabel.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
         self.searchViewLabel.backgroundColor = UIColor.lightGray
         self.searchViewLabel.font = UIFont.systemFont(ofSize: 14)
@@ -93,7 +94,7 @@ class ViewController: UIViewController {
             make.top.equalTo(self.paddingTextField.snp.bottom)
             make.height.greaterThanOrEqualTo(30)
         }
-        self.searchView.placeholder = "Search..."
+        self.searchView.textField.placeholder = "Search..."
         self.view.addSubview(self.searchView)
         self.searchView.snp.makeConstraints { (make) in
             make.left.equalTo(self.view).offset(4)
