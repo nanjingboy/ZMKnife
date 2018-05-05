@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     let searchViewLabel = PaddingLabel()
     let searchView = SearchView()
 
+    let titleTextFieldLabel = PaddingLabel()
+    let titleTextField = TitleTextField()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
@@ -100,6 +103,26 @@ class ViewController: UIViewController {
         }
         self.searchView.onSearch = { [unowned self] (keyword) in
             self.view.makeToast("Keyword: \(keyword!)")
+        }
+
+        self.titleTextFieldLabel.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.titleTextFieldLabel.backgroundColor = UIColor.lightGray
+        self.titleTextFieldLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleTextFieldLabel.text = "TitleTextField Demo"
+        self.view.addSubview(self.titleTextFieldLabel)
+        self.titleTextFieldLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.searchView.snp.bottom)
+            make.height.greaterThanOrEqualTo(30)
+        }
+        self.titleTextField.isRequired = true
+        self.titleTextField.label.text = "Name"
+        self.titleTextField.textField.placeholder = "please type your name"
+        self.view.addSubview(self.titleTextField)
+        self.titleTextField.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.titleTextFieldLabel.snp.bottom)
+            make.height.equalTo(40)
         }
     }
 }
