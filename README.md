@@ -10,13 +10,14 @@ Some widgets I often used in projects for iOS
 #### Install with [CocoaPods](http://cocoapods.org/)
 
 ```ruby
-pod 'ZMKnife', '~> 0.1.0'
+pod 'ZMKnife', '~> 0.1.1'
 ```
 
 # Widgets
 
 * [PaddingLabel](Source/PaddingLabel.swift)
 * [PaddingTextField](Source/PaddingTextField.swift)
+* [TitleTextField](Source/TitleTextField.swift)
 * [BorderBottomView](Source/BorderBottomView.swift)
 * [TitleAndValueTextView](Source/TitleAndValueTextView.swift)
 * [RightIconTitleAndValueTextView](Source/RightIconTitleAndValueTextView.swift)
