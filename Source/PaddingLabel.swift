@@ -1,7 +1,7 @@
 import UIKit
 import SpriteKit
 
-open class PaddingLabel: UILabel {
+open class PaddingLabel: PlaceholderLabel {
 
     open var bottomBorderColor: UIColor? {
         didSet {
@@ -17,16 +17,6 @@ open class PaddingLabel: UILabel {
 
     let borderBottom = UIView()
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.initViews()
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.initViews()
-    }
-
     open override func updateConstraints() {
         super.updateConstraints()
         self.borderBottom.snp.remakeConstraints { (make) in
@@ -40,7 +30,7 @@ open class PaddingLabel: UILabel {
         super.drawText(in: UIEdgeInsetsInsetRect(rect, self.padding))
     }
 
-    open func initViews() {
+    open override func initViews() {
         self.borderBottom.backgroundColor = self.backgroundColor
         self.addSubview(self.borderBottom)
     }

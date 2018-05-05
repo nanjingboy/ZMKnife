@@ -9,7 +9,7 @@ open class TitleAndValueTextView: BorderBottomView {
     open var rightPadding: CGFloat = 16
 
     open let titleLabel = UILabel()
-    open let valueLabel = UILabel()
+    open let valueLabel = PlaceholderLabel()
 
     let requiredLabel = UILabel()
 
