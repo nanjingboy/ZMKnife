@@ -20,9 +20,12 @@ class ViewController: UIViewController {
     let titleTextFieldLabel = PaddingLabel()
     let titleTextField = TitleTextField()
 
+    let paddingTextViewLabel = PaddingLabel()
+    let paddingTextView = PaddingTextView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
+        self.view.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = "ZMKnife Demos"
 
@@ -75,7 +78,7 @@ class ViewController: UIViewController {
             make.height.greaterThanOrEqualTo(30)
         }
         self.paddingTextField.placeholder = "padding text field"
-        self.paddingTextField.bottomBorderColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00)
+        self.paddingTextField.backgroundColor = UIColor.white
         self.paddingTextField.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
         self.view.addSubview(self.paddingTextField)
         self.paddingTextField.snp.makeConstraints { (make) in
@@ -113,7 +116,7 @@ class ViewController: UIViewController {
         self.view.addSubview(self.titleTextFieldLabel)
         self.titleTextFieldLabel.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
-            make.top.equalTo(self.searchView.snp.bottom)
+            make.top.equalTo(self.searchView.snp.bottom).offset(4)
             make.height.greaterThanOrEqualTo(30)
         }
         self.titleTextField.isRequired = true
@@ -124,6 +127,26 @@ class ViewController: UIViewController {
             make.left.right.equalTo(self.view)
             make.top.equalTo(self.titleTextFieldLabel.snp.bottom)
             make.height.equalTo(40)
+        }
+
+        self.paddingTextViewLabel.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.paddingTextViewLabel.backgroundColor = UIColor.lightGray
+        self.paddingTextViewLabel.font = UIFont.systemFont(ofSize: 14)
+        self.paddingTextViewLabel.text = "PaddingTextView Demo"
+        self.view.addSubview(self.paddingTextViewLabel)
+        self.paddingTextViewLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.titleTextField.snp.bottom)
+            make.height.greaterThanOrEqualTo(30)
+        }
+        self.paddingTextView.placeholder = "please type..."
+        self.paddingTextView.font = UIFont.systemFont(ofSize: 14)
+        self.paddingTextView.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.view.addSubview(self.paddingTextView)
+        self.paddingTextView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.paddingTextViewLabel.snp.bottom)
+            make.height.equalTo(50)
         }
     }
 }

@@ -1,10 +1,6 @@
 # ZMKnife
 Some widgets I often used in projects for iOS
 
-# Screenshot
-
-![ZMKnife Screenshot](Screenshot.gif)
-
 # Setup
 
 #### Install with [CocoaPods](http://cocoapods.org/)
@@ -18,6 +14,7 @@ pod 'ZMKnife', '~> 0.1.3'
 * [PlaceholderLabel](Source/PlaceholderLabel.swift)
 * [PaddingLabel](Source/PaddingLabel.swift)
 * [PaddingTextField](Source/PaddingTextField.swift)
+* [PaddingTextView](Source/PaddingTextView.swift)
 * [TitleTextField](Source/TitleTextField.swift)
 * [BorderBottomView](Source/BorderBottomView.swift)
 * [TitleAndValueTextView](Source/TitleAndValueTextView.swift)

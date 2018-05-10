@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
     'ZMKnife' => ['Assets.xcassets']
   }
   s.dependency 'SnapKit'
+  s.dependency 'UITextView+Placeholder'
 end
