@@ -80,6 +80,7 @@ class ViewController: UIViewController {
         self.paddingTextField.placeholder = "padding text field"
         self.paddingTextField.backgroundColor = UIColor.white
         self.paddingTextField.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.paddingTextField.font = UIFont.systemFont(ofSize: 14)
         self.view.addSubview(self.paddingTextField)
         self.paddingTextField.snp.makeConstraints { (make) in
             make.left.right.equalTo(self.view)
@@ -120,7 +121,7 @@ class ViewController: UIViewController {
             make.height.greaterThanOrEqualTo(30)
         }
         self.titleTextField.isRequired = true
-        self.titleTextField.label.text = "Name"
+        self.titleTextField.titleLabel.text = "Name"
         self.titleTextField.textField.placeholder = "please type your name"
         self.view.addSubview(self.titleTextField)
         self.titleTextField.snp.makeConstraints { (make) in
