@@ -23,6 +23,9 @@ class ViewController: UIViewController {
     let paddingTextViewLabel = PaddingLabel()
     let paddingTextView = PaddingTextView()
 
+    let titleSwitchLabel = PaddingLabel()
+    let titleSwitch = TitleSwitch()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00)
@@ -148,6 +151,31 @@ class ViewController: UIViewController {
             make.left.right.equalTo(self.view)
             make.top.equalTo(self.paddingTextViewLabel.snp.bottom)
             make.height.equalTo(50)
+        }
+
+        self.titleSwitchLabel.padding = UIEdgeInsets(top: 10, left: 16, bottom: 10, right: 16)
+        self.titleSwitchLabel.backgroundColor = UIColor.lightGray
+        self.titleSwitchLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleSwitchLabel.text = "TitleSwitch Demo"
+        self.view.addSubview(self.titleSwitchLabel)
+        self.titleSwitchLabel.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.paddingTextView.snp.bottom)
+            make.height.greaterThanOrEqualTo(30)
+        }
+
+        self.titleSwitch.titleLabel.text = "Switch"
+        self.titleSwitch.titleLabel.font = UIFont.systemFont(ofSize: 14)
+        self.titleSwitch.isSelected = true
+        self.titleSwitch.onTintColor = UIColor(red:0.29, green:0.44, blue:0.74, alpha:1.00)
+        self.view.addSubview(self.titleSwitch)
+        self.titleSwitch.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.titleSwitchLabel.snp.bottom)
+            make.height.equalTo(50)
+        }
+        self.titleSwitch.onSelectChanged = { [unowned self] (isSelected) in
+            self.view.makeToast("Switch selected: \(isSelected)")
         }
     }
 }
