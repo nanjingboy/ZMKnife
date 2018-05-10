@@ -6,20 +6,21 @@ Some widgets I often used in projects for iOS
 #### Install with [CocoaPods](http://cocoapods.org/)
 
 ```ruby
-pod 'ZMKnife', '~> 0.1.3'
+pod 'ZMKnife', '~> 0.1.5'
 ```
 
 # Widgets
 
+* [BorderBottomView](Source/BorderBottomView.swift)
 * [PlaceholderLabel](Source/PlaceholderLabel.swift)
 * [PaddingLabel](Source/PaddingLabel.swift)
 * [PaddingTextField](Source/PaddingTextField.swift)
 * [PaddingTextView](Source/PaddingTextView.swift)
+* [SearchView](Source/SearchView.swift)
 * [TitleTextField](Source/TitleTextField.swift)
-* [BorderBottomView](Source/BorderBottomView.swift)
+* [TitleSwitch](Source/TitleSwitch.swift)
 * [TitleAndValueTextView](Source/TitleAndValueTextView.swift)
 * [RightIconTitleAndValueTextView](Source/RightIconTitleAndValueTextView.swift)
-* [SearchView](Source/SearchView.swift)
 
 #### [Example](Example/Example/ViewController.swift)
 
