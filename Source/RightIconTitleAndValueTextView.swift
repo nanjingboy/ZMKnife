@@ -26,7 +26,8 @@ open class RightIconTitleAndValueTextView : TitleAndValueTextView {
         self.valueLabel.snp.remakeConstraints { (make) in
             make.left.equalTo(self.titleLabel.snp.right)
             make.right.equalTo(self).offset(-(self.rightPadding + self.rightIconWidth + self.rightIconLeftMargin))
-            make.top.bottom.equalTo(self)
+            make.top.equalTo(self).offset(self.valueLabel.padding.top)
+            make.bottom.equalTo(self).offset(-self.valueLabel.padding.bottom)
         }
     }
 
