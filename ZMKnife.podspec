@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ZMKnife'
-  s.version          = '0.1.5'
+  s.version          = '0.1.7'
   s.summary          = 'Some widgets I often used in projects'
   s.homepage         = 'https://github.com/nanjingboy/ZMKnife'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

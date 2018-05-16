@@ -1,3 +1,8 @@
+## 0.1.7 2018-05-16
+
+* Allow multiLine default for TitleAndValueTextView & RightIconTitleAndValueTextView
+* Set top and bottom padding for TitleAndValueTextView & RightIconTitleAndValueTextView
+
 ## 0.1.5 2018-05-10
 
 * Add TitleSwitch
