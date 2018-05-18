@@ -1,3 +1,7 @@
+## 0.2.0 2018-05-18
+
+* Rewrite logic for bottom border setting
+
 ## 0.1.9 2018-05-18
 
 * Fix PaddingLabel error, should call super.initViews
