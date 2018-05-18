@@ -1,15 +1,14 @@
 import UIKit
-import SnapKit
 
 open class BorderBottomView: UIView {
 
-    open var borderColor: UIColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00) {
+    open var bottomBorderColor: UIColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.00) {
         didSet {
-            self.borderBottom.backgroundColor = self.borderColor
+            setNeedsDisplay()
         }
     }
 
-    let borderBottom = UIView()
+    let bottomBorderLayer = CALayer()
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,17 +20,15 @@ open class BorderBottomView: UIView {
         self.initViews()
     }
 
-    open override func updateConstraints() {
-        super.updateConstraints()
-        self.borderBottom.snp.remakeConstraints { (make) in
-            make.left.right.equalTo(self)
-            make.top.equalTo(self.snp.bottom).offset(-1)
-            make.height.equalTo(1)
+    open override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        if !(self.layer.sublayers?.contains(self.bottomBorderLayer) ?? false) {
+            self.layer.addSublayer(self.bottomBorderLayer)
         }
+        self.bottomBorderLayer.backgroundColor = self.bottomBorderColor.cgColor
+        self.bottomBorderLayer.frame = CGRect(x: 0, y: self.bounds.height - 1, width: self.bounds.width, height: 1)
     }
 
     open func initViews() {
-        self.borderBottom.backgroundColor = self.borderColor
-        self.addSubview(self.borderBottom)
     }
 }
