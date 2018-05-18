@@ -33,5 +33,6 @@ open class PaddingLabel: PlaceholderLabel {
     open override func initViews() {
         self.borderBottom.backgroundColor = self.backgroundColor
         self.addSubview(self.borderBottom)
+        super.initViews()
     }
 }
