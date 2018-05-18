@@ -1,3 +1,7 @@
+## 0.1.9 2018-05-18
+
+* Fix PaddingLabel error, should call super.initViews
+
 ## 0.1.7 2018-05-16
 
 * Allow multiLine default for TitleAndValueTextView & RightIconTitleAndValueTextView
