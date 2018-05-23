@@ -44,9 +44,13 @@ open class PlaceholderLabel: UILabel {
     open override func updateConstraints() {
         super.updateConstraints()
         if (self.text?.isEmpty ?? true) && self.subviews.contains(self.placehoderLabel) {
-            self.placehoderLabel.snp.remakeConstraints { (make) in
-                make.left.right.top.bottom.equalTo(self)
-            }
+            self.updatePlaceerConstraints(self.placehoderLabel)
+        }
+    }
+
+    open func updatePlaceerConstraints(_ label: UILabel) {
+        label.snp.remakeConstraints { (make) in
+            make.left.right.top.bottom.equalTo(self)
         }
     }
 

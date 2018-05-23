@@ -1,4 +1,5 @@
 import UIKit
+import SnapKit
 
 open class PaddingLabel: PlaceholderLabel {
 
@@ -15,6 +16,15 @@ open class PaddingLabel: PlaceholderLabel {
     }
 
     let bottomBorderLayer = CALayer()
+
+    open override func updatePlaceerConstraints(_ label: UILabel) {
+        label.snp.remakeConstraints { (make) in
+            make.left.equalTo(self).offset(self.padding.left)
+            make.right.equalTo(self).offset(-self.padding.right)
+            make.top.equalTo(self).offset(self.padding.top)
+            make.bottom.equalTo(self).offset(-self.padding.bottom)
+        }
+    }
 
     open override func draw(_ rect: CGRect) {
         super.draw(rect)
