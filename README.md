@@ -6,7 +6,7 @@ Some widgets I often used in projects for iOS
 #### Install with [CocoaPods](http://cocoapods.org/)
 
 ```ruby
-pod 'ZMKnife', '~> 0.2.0'
+pod 'ZMKnife', '~> 0.2.1'
 ```
 
 # Widgets

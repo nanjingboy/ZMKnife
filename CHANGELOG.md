@@ -1,3 +1,7 @@
+## 0.2.1 2018-05-23
+
+* Fix PaddingLabel placeholder padding error
+
 ## 0.2.0 2018-05-18
 
 * Rewrite logic for bottom border setting
